@@ -26,8 +26,8 @@ const HEARTBEAT_INTERVAL = 7000; // 10 seconds without message disconnects if us
 setInterval(() => {
     wss.clients.forEach((client) => {
         if (client.readyState === WebSocket.OPEN) {
-        client.ping();
-        console.log("Pinging...");
+          client.send(JSON.stringify({ type: "ping" }));
+          console.log("Ping sent");
         }
     });
 }, HEARTBEAT_INTERVAL);
