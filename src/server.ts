@@ -1,6 +1,8 @@
 import { WebSocketServer, WebSocket } from "ws";
 
-const PORT = 8080;
+
+const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 8080;
+
 const wss = new WebSocketServer({ port: PORT });
 
 // --- Types ---
