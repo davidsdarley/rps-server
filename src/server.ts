@@ -21,7 +21,7 @@ interface Room {
 const rooms = new Map<string, Room>();
 
 // Heartbeat — keeps connections alive
-const HEARTBEAT_INTERVAL = 7000; // 10 seconds without message disconnects if using Eduroam. Ping every 7 to be safe.
+const HEARTBEAT_INTERVAL = 9000; // 10 seconds without message disconnects if using Eduroam. Ping every 7 to be safe.
 
 setInterval(() => {
     wss.clients.forEach((client) => {
