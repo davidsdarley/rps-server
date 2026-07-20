@@ -72,6 +72,8 @@ wss.on("connection", (ws) => {
     
     if(msg.type === "pong"){  // message to maintain the connection, no other purpose.
       activeConnections += 1;
+      console.log("\tPONG RECEIVED!", );
+
     }
     else{ // relevant messages. Handling required.
       console.log("Received:", msg);
