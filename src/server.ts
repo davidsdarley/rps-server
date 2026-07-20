@@ -24,10 +24,10 @@ const rooms = new Map<string, Room>();
 const HEARTBEAT_INTERVAL = 9000; // 10 seconds without message disconnects if using Eduroam. Ping every 9 to be safe.
 
 setInterval(() => {
-    console.log("Pinging...");
     wss.clients.forEach((client) => {
         if (client.readyState === WebSocket.OPEN) {
         client.ping();
+        console.log("Pinging...");
         }
     });
 }, HEARTBEAT_INTERVAL);
