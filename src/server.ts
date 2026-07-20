@@ -33,7 +33,6 @@ setInterval(() => {
     wss.clients.forEach((client) => {
         if (client.readyState === WebSocket.OPEN) {
           client.send(JSON.stringify({ type: "ping" }));
-          console.log("Ping sent");
         }
     });
 }, HEARTBEAT_INTERVAL);
@@ -72,8 +71,6 @@ wss.on("connection", (ws) => {
     
     if(msg.type === "pong"){  // message to maintain the connection, no other purpose.
       activeConnections += 1;
-      console.log("\tPONG RECEIVED!", );
-
     }
     else{ // relevant messages. Handling required.
       console.log("Received:", msg);
